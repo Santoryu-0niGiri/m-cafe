@@ -1,0 +1,97 @@
+@use '../../../styles/variables' as *;
+
+:host { display: block; }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  min-height: $navbar-height;
+  padding: 0.75rem 0;
+  background: transparent;
+  transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease;
+
+  &.scrolled {
+    background: rgba(44, 24, 16, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 0;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: $font-heading;
+    color: $white;
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    .brand-icon { font-size: 1.3rem; }
+
+    .brand-text {
+      background: linear-gradient(135deg, $white, $secondary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-family: $font-primary;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: $transition-base;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 20px;
+      height: 2px;
+      background: $secondary;
+      border-radius: 1px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover,
+    &.active {
+      color: $white;
+      &::after { transform: translateX(-50%) scaleX(1); }
+    }
+  }
+
+  .order-btn {
+    font-size: 0.82rem;
+    padding: 0.55rem 1.25rem;
+  }
+
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.4);
+
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+  }
+}
+
+// Mobile nav background
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(44, 24, 16, 0.97);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}

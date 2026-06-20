@@ -1,0 +1,80 @@
+<!-- Floating toggle button -->
+<button class="chat-toggle" (click)="toggle()" [class.open]="isOpen()" aria-label="Chat with us">
+  @if (isOpen()) {
+    <i class="bi bi-x-lg"></i>
+  } @else {
+    <i class="bi bi-chat-dots-fill"></i>
+  }
+</button>
+
+<!-- Chat window -->
+@if (isOpen()) {
+  <div class="chat-window">
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="chat-avatar">☕</div>
+      <div class="chat-header-info">
+        <strong>M CAFE Assistant</strong>
+        <span class="online-badge">
+          <i class="bi bi-circle-fill"></i> Online
+        </span>
+      </div>
+      <button class="close-btn" (click)="toggle()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div class="chat-messages" #messagesContainer>
+      @for (msg of chat.messages(); track msg.id) {
+        <div class="message" [class.user]="msg.role === 'user'" [class.bot]="msg.role === 'bot'">
+          @if (msg.role === 'bot') {
+            <div class="bot-avatar">☕</div>
+          }
+          <div class="bubble">
+            <p>{{ msg.text }}</p>
+            @if (chat.isOrderResponse(msg.text)) {
+              <a class="btn-messenger mt-2 d-inline-flex"
+                 href="https://m.me/61580168354219"
+                 target="_blank" rel="noopener">
+                <i class="bi bi-messenger"></i> Order Now
+              </a>
+            }
+          </div>
+        </div>
+      }
+
+      @if (chat.isTyping()) {
+        <div class="message bot">
+          <div class="bot-avatar">☕</div>
+          <div class="bubble typing-bubble">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Suggested questions -->
+    @if (chat.messages().length <= 1) {
+      <div class="suggestions">
+        @for (q of chat.suggestedQuestions; track q) {
+          <button class="suggestion-chip" (click)="send(q)">{{ q }}</button>
+        }
+      </div>
+    }
+
+    <!-- Input -->
+    <div class="chat-input">
+      <input
+        type="text"
+        placeholder="Ask about M CAFE..."
+        [value]="inputText()"
+        (input)="inputText.set($any($event.target).value)"
+        (keydown)="onKeydown($event)"
+      />
+      <button (click)="send()" [disabled]="!inputText().trim()">
+        <i class="bi bi-send-fill"></i>
+      </button>
+    </div>
+  </div>
+}

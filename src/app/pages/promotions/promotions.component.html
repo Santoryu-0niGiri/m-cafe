@@ -1,0 +1,65 @@
+<!-- ── Hero ── -->
+<section class="promo-hero">
+  <div class="promo-hero-overlay"></div>
+  <div class="container promo-hero-content">
+    <p class="hero-eyebrow fade-in delay-1">Special Offers</p>
+    <h1 class="fade-in delay-2">Promotions</h1>
+    <p class="fade-in delay-3">Discover our latest deals and exclusive offers — crafted just for you.</p>
+  </div>
+</section>
+
+<!-- ── Promos Grid ── -->
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      @for (promo of promotions; track promo.id) {
+        <div class="col-md-6 col-lg-4">
+          <div class="promo-card reveal">
+            <div class="promo-img-wrap">
+              <img [src]="promo.image" [alt]="promo.title" loading="lazy" />
+              @if (promo.badge) {
+                <span class="promo-badge" [class.limited]="promo.limited">
+                  @if (promo.limited) {
+                    <i class="bi bi-lightning-fill"></i>
+                  }
+                  {{ promo.badge }}
+                </span>
+              }
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-title">{{ promo.title }}</h3>
+              <p class="promo-desc">{{ promo.description }}</p>
+              <p class="promo-details">{{ promo.details }}</p>
+
+              <div class="promo-validity">
+                <i class="bi bi-calendar3"></i>
+                <span>{{ promo.validFrom }} — {{ promo.validUntil }}</span>
+              </div>
+
+              <a class="btn-messenger d-flex justify-content-center"
+                 href="https://m.me/61580168354219"
+                 target="_blank" rel="noopener">
+                <i class="bi bi-messenger"></i> Order Now
+              </a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="promo-cta">
+  <div class="promo-cta-overlay"></div>
+  <div class="container promo-cta-content reveal">
+    <h2>Never Miss a Deal</h2>
+    <p>Follow us on Facebook and Messenger to stay updated on all our latest promotions and events.</p>
+    <a class="btn-messenger"
+       href="https://m.me/61580168354219"
+       target="_blank" rel="noopener"
+       style="font-size: 1rem; padding: 0.85rem 2rem;">
+      <i class="bi bi-messenger"></i> Message Us on Facebook
+    </a>
+  </div>
+</section>

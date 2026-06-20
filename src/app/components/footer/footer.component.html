@@ -1,0 +1,66 @@
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Brand -->
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand">
+            <span class="footer-logo">☕ M CAFE</span>
+            <p>Brewed with passion, served with love. Your favourite neighbourhood café since 2019.</p>
+            <div class="footer-social">
+              <a href="https://www.facebook.com/61580168354219" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="https://m.me/61580168354219" target="_blank" rel="noopener" aria-label="Messenger">
+                <i class="bi bi-messenger"></i>
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nav Links -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-heading">Quick Links</h5>
+          <ul class="footer-links">
+            @for (link of links; track link.path) {
+              <li><a [routerLink]="link.path">{{ link.label }}</a></li>
+            }
+          </ul>
+        </div>
+
+        <!-- Hours -->
+        <div class="col-lg-3 col-md-6 col-6">
+          <h5 class="footer-heading">Hours</h5>
+          <ul class="footer-hours">
+            <li><span>Mon – Sun</span><span>7:00 AM – 10:00 PM</span></li>
+            <li><span>Holidays</span><span>8:00 AM – 9:00 PM</span></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-heading">Contact</h5>
+          <ul class="footer-contact">
+            <li><i class="bi bi-geo-alt-fill"></i> 123 Café Street, Brewed District</li>
+            <li><i class="bi bi-telephone-fill"></i> +63 912 345 6789</li>
+            <li><i class="bi bi-envelope-fill"></i> hello@mcafe.ph</li>
+          </ul>
+          <a class="footer-order-btn"
+             href="https://m.me/61580168354219"
+             target="_blank" rel="noopener">
+            <i class="bi bi-messenger"></i> Order on Messenger
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; {{ year }} M CAFE. All rights reserved. Made with ☕ &amp; ❤️</p>
+    </div>
+  </div>
+</footer>

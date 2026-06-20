@@ -1,0 +1,84 @@
+<!-- ── Page Hero ── -->
+<section class="menu-hero">
+  <div class="menu-hero-overlay"></div>
+  <div class="container menu-hero-content">
+    <p class="hero-eyebrow fade-in delay-1">Explore Our</p>
+    <h1 class="fade-in delay-2">Full Menu</h1>
+    <p class="fade-in delay-3">Crafted with passion, served with love — something for every craving.</p>
+  </div>
+</section>
+
+<!-- ── Filter & Search ── -->
+<section class="filter-section">
+  <div class="container">
+    <!-- Search -->
+    <div class="search-wrap">
+      <i class="bi bi-search search-icon"></i>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search menu items..."
+        [value]="searchQuery()"
+        (input)="onSearch($event)"
+      />
+    </div>
+
+    <!-- Category pills -->
+    <div class="category-pills">
+      @for (cat of categories; track cat) {
+        <button
+          class="cat-pill"
+          [class.active]="activeCategory() === cat"
+          (click)="setCategory(cat)"
+        >
+          {{ cat }}
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ── Menu Grid ── -->
+<section class="section menu-grid-section">
+  <div class="container">
+    @if (filteredItems().length === 0) {
+      <div class="no-results">
+        <i class="bi bi-search"></i>
+        <h3>No items found</h3>
+        <p>Try adjusting your search or selecting a different category.</p>
+      </div>
+    } @else {
+      <p class="results-count">{{ filteredItems().length }} item{{ filteredItems().length !== 1 ? 's' : '' }} found</p>
+
+      <div class="row g-4">
+        @for (item of filteredItems(); track item.id) {
+          <div class="col-sm-6 col-lg-4 col-xl-3">
+            <div class="menu-card">
+              @if (item.badge) {
+                <span class="menu-badge">{{ item.badge }}</span>
+              }
+              <div class="menu-card-img-wrap">
+                <img [src]="item.image" [alt]="item.name" loading="lazy" />
+                <div class="img-overlay">
+                  <span class="cat-tag">{{ item.category }}</span>
+                </div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">{{ item.name }}</h3>
+                <p class="menu-card-desc">{{ item.description }}</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₱{{ item.price }}</span>
+                  <a class="btn-messenger"
+                     href="https://m.me/61580168354219"
+                     target="_blank" rel="noopener">
+                    <i class="bi bi-messenger"></i> Order
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

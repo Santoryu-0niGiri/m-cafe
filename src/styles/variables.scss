@@ -1,0 +1,32 @@
+// ── Brand Colors ──────────────────────────────────────────
+$primary:        #2c1810;
+$primary-light:  #4a2c1e;
+$secondary:      #c8a97e;
+$accent:         #e8d5b7;
+$accent-dark:    #b8935a;
+$dark:           #1a1a1a;
+$light:          #fafaf8;
+$white:          #ffffff;
+$overlay:        rgba(0, 0, 0, 0.55);
+$glass-bg:       rgba(255, 255, 255, 0.08);
+$glass-border:   rgba(255, 255, 255, 0.15);
+
+// ── Typography ────────────────────────────────────────────
+$font-primary:   'Poppins', sans-serif;
+$font-heading:   'Playfair Display', serif;
+
+// ── Spacing ───────────────────────────────────────────────
+$navbar-height:  70px;
+$section-py:     5rem;
+$card-radius:    16px;
+$btn-radius:     50px;
+
+// ── Shadows ───────────────────────────────────────────────
+$shadow-sm:   0 2px 12px rgba(44, 24, 16, 0.08);
+$shadow-md:   0 8px 32px rgba(44, 24, 16, 0.14);
+$shadow-lg:   0 20px 60px rgba(44, 24, 16, 0.20);
+$shadow-card: 0 4px 24px rgba(0, 0, 0, 0.10);
+
+// ── Transitions ───────────────────────────────────────────
+$transition-base: all 0.3s ease;
+$transition-slow: all 0.5s ease;

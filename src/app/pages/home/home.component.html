@@ -1,0 +1,132 @@
+<!-- ════════════════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content container">
+    <p class="hero-eyebrow fade-in delay-1">Welcome to M CAFE</p>
+    <h1 class="hero-title fade-in delay-2">
+      Brewed with Passion,<br />
+      <span>Served with Love</span>
+    </h1>
+    <p class="hero-subtitle fade-in delay-3">
+      Discover our handcrafted beverages and artisan cuisine,<br class="d-none d-md-block" />
+      prepared fresh every day in the heart of your community.
+    </p>
+    <div class="hero-actions fade-in delay-4">
+      <a class="btn-cafe btn-cafe-primary" routerLink="/menu">
+        <i class="bi bi-book-fill"></i> View Menu
+      </a>
+      <a class="btn-cafe btn-cafe-outline" href="https://m.me/61580168354219" target="_blank" rel="noopener">
+        <i class="bi bi-messenger"></i> Order Now
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator fade-in delay-6">
+    <span>Scroll</span>
+    <div class="scroll-arrow">
+      <i class="bi bi-chevron-down"></i>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     FEATURED MENU
+════════════════════════════════════════════════════════ -->
+<section class="section featured-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <p class="section-eyebrow">Our Specialties</p>
+      <h2 class="section-title">Featured Menu</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">
+        Handcrafted with the finest ingredients. Every item tells a story of flavour, care, and craft.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (item of featured; track item.id) {
+        <div class="col-sm-6 col-lg-4">
+          <div class="menu-card reveal">
+            @if (item.badge) {
+              <span class="menu-badge">{{ item.badge }}</span>
+            }
+            <div class="menu-card-img-wrap">
+              <img [src]="item.image" [alt]="item.name" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-category">{{ item.category }}</div>
+              <h3 class="menu-card-title">{{ item.name }}</h3>
+              <p class="menu-card-desc">{{ item.description }}</p>
+              <div class="menu-card-footer">
+                <span class="menu-card-price">₱{{ item.price }}</span>
+                <a class="btn-messenger"
+                   href="https://m.me/61580168354219"
+                   target="_blank" rel="noopener">
+                  <i class="bi bi-messenger"></i> Order Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="text-center mt-5 reveal">
+      <a class="btn-cafe btn-cafe-dark" routerLink="/menu">
+        <i class="bi bi-grid-fill"></i> View Full Menu
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     WHY CHOOSE US
+════════════════════════════════════════════════════════ -->
+<section class="section why-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <p class="section-eyebrow">Why M CAFE</p>
+      <h2 class="section-title">What Makes Us Special</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">
+        More than a cup of coffee — it's an experience worth coming back to.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      @for (feat of features; track feat.title; let i = $index) {
+        <div class="col-sm-6 col-lg-3">
+          <div class="feature-card reveal" [style.animation-delay]="(i * 0.1) + 's'">
+            <div class="feature-icon-wrap">
+              <i class="bi {{ feat.icon }}"></i>
+            </div>
+            <h3 class="feature-title">{{ feat.title }}</h3>
+            <p class="feature-desc">{{ feat.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     CTA BANNER
+════════════════════════════════════════════════════════ -->
+<section class="cta-banner">
+  <div class="cta-overlay"></div>
+  <div class="container cta-content reveal">
+    <h2>Ready to Experience M CAFE?</h2>
+    <p>Order your favourites through Messenger or visit us in store today.</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap">
+      <a class="btn-cafe btn-cafe-primary" href="https://m.me/61580168354219" target="_blank" rel="noopener">
+        <i class="bi bi-messenger"></i> Order Now
+      </a>
+      <a class="btn-cafe btn-cafe-outline" routerLink="/contact">
+        <i class="bi bi-geo-alt-fill"></i> Find Us
+      </a>
+    </div>
+  </div>
+</section>

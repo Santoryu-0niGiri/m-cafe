@@ -1,0 +1,37 @@
+@use 'variables' as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin section-padding {
+  padding: $section-py 0;
+}
+
+@mixin heading-font {
+  font-family: $font-heading;
+}
+
+@mixin glass {
+  background: $glass-bg;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid $glass-border;
+}
+
+@mixin card-hover {
+  transition: $transition-base;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == sm  { @media (max-width: 576px)  { @content; } }
+  @else if $breakpoint == md  { @media (max-width: 768px)  { @content; } }
+  @else if $breakpoint == lg  { @media (max-width: 992px)  { @content; } }
+  @else if $breakpoint == xl  { @media (max-width: 1200px) { @content; } }
+}

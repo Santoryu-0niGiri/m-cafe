@@ -1,0 +1,175 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.hero-eyebrow, .section-eyebrow {
+  font-family: $font-primary;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $secondary;
+  margin-bottom: 0.5rem;
+}
+
+// ── Hero ──────────────────────────────────────────────────
+.contact-hero {
+  position: relative;
+  min-height: 45vh;
+  background: url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1600&auto=format&fit=crop&q=80')
+    center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+
+  .contact-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(26,10,5,0.82), rgba(44,24,16,0.68));
+  }
+
+  .contact-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: $white;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+
+    .hero-eyebrow { opacity: 0; }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; opacity: 0; }
+    p  { font-size: 1.05rem; color: rgba(255,255,255,0.82); opacity: 0; }
+  }
+}
+
+// ── Contact Cards ─────────────────────────────────────────
+.contact-cards-section { background: $light; }
+
+.contact-card {
+  text-align: center;
+  background: $white;
+  border-radius: $card-radius;
+  padding: 2rem 1.5rem;
+  box-shadow: $shadow-sm;
+  border: 1px solid rgba(200,169,126,0.15);
+  transition: $transition-slow;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-md;
+    border-color: rgba(200,169,126,0.35);
+  }
+
+  .contact-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $secondary, $accent-dark);
+    color: $white;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.1rem;
+  }
+
+  h4 {
+    font-family: $font-heading;
+    font-size: 1rem;
+    color: $primary;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: #6b5a4e;
+    margin: 0;
+    line-height: 1.65;
+  }
+}
+
+// ── Map Section ───────────────────────────────────────────
+.map-section { background: #fdfaf6; }
+
+.map-wrap {
+  border-radius: $card-radius;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  height: 460px;
+  min-height: 360px;
+
+  iframe { display: block; height: 100%; }
+}
+
+// ── Info Panel ────────────────────────────────────────────
+.info-panel {
+  background: $white;
+  border-radius: $card-radius;
+  padding: 2.5rem;
+  box-shadow: $shadow-card;
+  height: 100%;
+  border-left: 4px solid $secondary;
+}
+
+.info-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+
+  i {
+    font-size: 1.1rem;
+    color: $secondary;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  strong {
+    display: block;
+    font-family: $font-primary;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $secondary;
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #5a4a3e;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.social-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(200,169,126,0.2);
+}
+
+.btn-facebook {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: $btn-radius;
+  background: #1877f2;
+  color: $white;
+  font-family: $font-primary;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  transition: $transition-base;
+  text-decoration: none;
+  justify-content: center;
+
+  &:hover {
+    background: #166fe5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.4);
+    color: $white;
+  }
+}

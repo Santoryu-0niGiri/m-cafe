@@ -1,0 +1,217 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section-eyebrow {
+  font-family: $font-primary;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $secondary;
+  margin-bottom: 0.5rem;
+}
+
+// ── Hero ──────────────────────────────────────────────────
+.about-hero {
+  position: relative;
+  min-height: 55vh;
+  background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&auto=format&fit=crop&q=80')
+    center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+
+  .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(26,10,5,0.80), rgba(44,24,16,0.65));
+  }
+
+  .about-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: $white;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+
+    .hero-eyebrow {
+      font-family: $font-primary;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: $secondary;
+      margin-bottom: 1rem;
+      opacity: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+      opacity: 0;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      opacity: 0;
+    }
+  }
+}
+
+// ── Story ─────────────────────────────────────────────────
+.story-section { background: $light; }
+
+.story-img-wrap {
+  position: relative;
+  border-radius: $card-radius;
+  overflow: hidden;
+  box-shadow: $shadow-lg;
+
+  img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .story-img-badge {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: linear-gradient(135deg, $secondary, $accent-dark);
+    color: $white;
+    font-family: $font-heading;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: $btn-radius;
+    box-shadow: $shadow-md;
+  }
+}
+
+.story-text {
+  color: #5a4a3e;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+// ── Stats ─────────────────────────────────────────────────
+.stats-section {
+  position: relative;
+  padding: 5rem 0;
+  background: url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1600&auto=format&fit=crop&q=80')
+    center center / cover no-repeat;
+
+  .stats-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 24, 16, 0.88);
+  }
+
+  .container { position: relative; z-index: 1; }
+}
+
+.stat-card {
+  text-align: center;
+  color: $white;
+  padding: 1.5rem;
+
+  .stat-number {
+    font-family: $font-heading;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: $secondary;
+    line-height: 1;
+    animation: countUp 0.5s ease;
+
+    span { font-size: 60%; color: $accent; }
+  }
+
+  .stat-label {
+    font-family: $font-primary;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.06em;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+  }
+}
+
+// ── Mission / Vision ──────────────────────────────────────
+.mv-section { background: #fdfaf6; }
+
+.mv-card {
+  padding: 2.5rem;
+  border-radius: $card-radius;
+  height: 100%;
+  box-shadow: $shadow-card;
+  transition: $transition-slow;
+
+  &.mission { border-top: 4px solid $secondary; background: $white; }
+  &.vision  { border-top: 4px solid $primary;   background: $white; }
+
+  &:hover { transform: translateY(-6px); box-shadow: $shadow-md; }
+
+  .mv-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(200,169,126,0.15), rgba(200,169,126,0.28));
+    color: $secondary;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  h3 {
+    font-family: $font-heading;
+    font-size: 1.3rem;
+    color: $primary;
+    margin-bottom: 1rem;
+  }
+
+  p { font-size: 0.92rem; color: #5a4a3e; line-height: 1.85; margin: 0; }
+}
+
+// ── Values ────────────────────────────────────────────────
+.values-section { background: $light; }
+
+.value-card {
+  background: $white;
+  border-radius: $card-radius;
+  padding: 2rem;
+  box-shadow: $shadow-sm;
+  border: 1px solid rgba(200,169,126,0.15);
+  transition: $transition-slow;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-md;
+    border-color: rgba(200,169,126,0.4);
+  }
+
+  .value-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $secondary, $accent-dark);
+    color: $white;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+
+  h4 {
+    font-family: $font-heading;
+    font-size: 1.05rem;
+    color: $primary;
+    margin-bottom: 0.5rem;
+  }
+
+  p { font-size: 0.85rem; color: #6b5a4e; line-height: 1.7; margin: 0; }
+}

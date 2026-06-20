@@ -1,0 +1,110 @@
+<!-- ── Hero Banner ── -->
+<section class="about-hero">
+  <div class="about-hero-overlay"></div>
+  <div class="container about-hero-content">
+    <p class="hero-eyebrow fade-in delay-1">Our Story</p>
+    <h1 class="fade-in delay-2">About M CAFE</h1>
+    <p class="fade-in delay-3">Where every cup is a story, and every visit is a memory.</p>
+  </div>
+</section>
+
+<!-- ── Our Story ── -->
+<section class="section story-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <div class="story-img-wrap">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&auto=format&fit=crop&q=80" alt="M CAFE Interior" />
+          <div class="story-img-badge">Est. 2019</div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <p class="section-eyebrow">Who We Are</p>
+        <h2 class="section-title">Our Story</h2>
+        <div class="section-divider" style="margin: 0.75rem 0 1.5rem;"></div>
+        <p class="story-text">
+          M CAFE was born from a simple idea: that great coffee, made with care and served with warmth, can change someone's entire day. Founded in 2019 by a pair of coffee enthusiasts, we set out to create a space that felt like a second home.
+        </p>
+        <p class="story-text">
+          From our first humble espresso machine to the thriving community café we are today, every step of our journey has been guided by an unwavering commitment to quality, creativity, and genuine hospitality.
+        </p>
+        <p class="story-text">
+          We believe coffee is more than a beverage — it's a ritual, a conversation starter, and a moment of peace in a busy world. That's what we brew here at M CAFE.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stats ── -->
+<section class="stats-section">
+  <div class="stats-overlay"></div>
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      @for (stat of stats; track stat.label) {
+        <div class="col-6 col-md-3">
+          <div class="stat-card">
+            <div class="stat-number">{{ stat.current() }}<span>{{ stat.suffix }}</span></div>
+            <div class="stat-label">{{ stat.label }}</div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ── Mission & Vision ── -->
+<section class="section mv-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <p class="section-eyebrow">Our Purpose</p>
+      <h2 class="section-title">Mission & Vision</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="row g-4 mt-2">
+      <div class="col-md-6 reveal">
+        <div class="mv-card mission">
+          <div class="mv-icon"><i class="bi bi-rocket-takeoff-fill"></i></div>
+          <h3>Our Mission</h3>
+          <p>
+            To craft exceptional coffee experiences that inspire connection, fuel creativity, and bring joy to every person who walks through our doors — one perfectly brewed cup at a time.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 reveal">
+        <div class="mv-card vision">
+          <div class="mv-icon"><i class="bi bi-eye-fill"></i></div>
+          <h3>Our Vision</h3>
+          <p>
+            To become the most beloved community café in our city — a place where quality is unwavering, creativity is celebrated, and every guest feels like family the moment they arrive.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Values ── -->
+<section class="section values-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <p class="section-eyebrow">What We Stand For</p>
+      <h2 class="section-title">Our Core Values</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">The principles that shape every decision we make and every cup we serve.</p>
+    </div>
+
+    <div class="row g-4">
+      @for (value of values; track value.title) {
+        <div class="col-sm-6 col-lg-4">
+          <div class="value-card reveal">
+            <div class="value-icon"><i class="bi {{ value.icon }}"></i></div>
+            <h4>{{ value.title }}</h4>
+            <p>{{ value.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
